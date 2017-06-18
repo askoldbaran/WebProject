@@ -72,9 +72,8 @@ public enum ItemDao {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         Connection connection = DBConnection.getInstance().getConnection();
-        String sql = "Select item where ";
         try {
-            preparedStatement = connection.prepareStatement("select item where userID = ?");
+            preparedStatement = connection.prepareStatement("select a.id, a.text from item a where userID = ?");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

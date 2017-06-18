@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        User user;
+        User user = null;
         boolean error = false;
         String errorMsg = null;
 
@@ -58,12 +58,10 @@ public class LoginServlet extends HttpServlet {
             dispatcher.forward(httpServletRequest, httpServletResponse);
         } else {
             HttpSession session = httpServletRequest.getSession();
-            // LogginedUser.storeLoginedUser(session, user);
+            LoggedUser.saveLoggedUser(session, user);
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/userPage");
             PrintWriter out = httpServletResponse.getWriter();
             out.println("Welcome" + login);
         }
-
-
     }
 }

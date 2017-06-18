@@ -1,7 +1,5 @@
 package entity;
 
-import java.util.List;
-
 /**
  * Created by askol on 6/13/2017.
  */
@@ -9,14 +7,14 @@ public class User {
     private int userID;
     private String name;
     private int age;
-    private String adress;
+    private String address;
     private String password;
     private String login;
 
-    public User( String name, int age, String adress, String password, String login) {
+    public User(String name, int age, String address, String password, String login) {
         this.name = name;
         this.age = age;
-        this.adress = adress;
+        this.address = address;
         this.password = password;
         this.login = login;
     }
@@ -48,12 +46,12 @@ public class User {
         this.age = age;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPassword() {
@@ -78,7 +76,7 @@ public class User {
                 "userID=" + userID +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", adress='" + adress + '\'' +
+                ", address='" + address + '\'' +
                 ", password='" + password + '\'' +
                 ", login='" + login + '\'' +
                 '}';

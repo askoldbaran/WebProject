@@ -27,7 +27,7 @@ public enum UserDao {
                 user.setUserID(resultSet.getInt("userId"));
                 user.setName(resultSet.getString("name"));
                 user.setAge(resultSet.getInt("age"));
-                user.setAdress(resultSet.getString("adress"));
+                user.setAddress(resultSet.getString("adress"));
                 user.setPassword(resultSet.getString("password"));
                 user.setLogin(resultSet.getString("login"));
             }
@@ -39,7 +39,7 @@ public enum UserDao {
 
 
     public List<User> allUsers() {
-        List<User> allUsers = new ArrayList<>();
+        List<User> allUsers = new ArrayList<User>();
         Statement statement = null;
         ResultSet resultSet = null;
         Connection connection = DBConnection.getInstance().getConnection();
@@ -52,7 +52,7 @@ public enum UserDao {
                 user.setUserID(resultSet.getInt("userID"));
                 user.setName(resultSet.getString("name"));
                 user.setAge(resultSet.getInt("age"));
-                user.setAdress(resultSet.getString("address"));
+                user.setAddress(resultSet.getString("address"));
                 user.setPassword(resultSet.getString("password"));
                 user.setLogin(resultSet.getString("login"));
                 allUsers.add(user);
@@ -93,7 +93,7 @@ public enum UserDao {
             preparedStatement.setInt(2, user.getAge());
             preparedStatement.setString(3, user.getLogin());
             preparedStatement.setString(4, user.getPassword());
-            preparedStatement.setString(5, user.getAdress());
+            preparedStatement.setString(5, user.getAddress());
             int i = preparedStatement.executeUpdate();
             if (i > 0) {
                 return true;
@@ -118,7 +118,7 @@ public enum UserDao {
                 user.setUserID(resultSet.getInt("userId"));
                 user.setName(resultSet.getString("name"));
                 user.setAge(resultSet.getInt("age"));
-                user.setAdress(resultSet.getString("adress"));
+                user.setAddress(resultSet.getString("adress"));
                 user.setPassword(resultSet.getString("password"));
                 user.setLogin(resultSet.getString("login"));
             }
@@ -143,7 +143,7 @@ public enum UserDao {
             preparedStatement.setInt(2, user.getAge());
             preparedStatement.setString(3, user.getLogin());
             preparedStatement.setString(4, user.getPassword());
-            preparedStatement.setString(5, user.getAdress());
+            preparedStatement.setString(5, user.getAddress());
             preparedStatement.setInt(6, user.getUserID());
 
             int i = preparedStatement.executeUpdate();

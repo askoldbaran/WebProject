@@ -28,7 +28,7 @@
 
         <p><label>Repeat Password <input type="text" placeholder="Repeat Password" name="psw-repeat" required></label></p>
         <%--<input type="checkbox" checked="checked"> Remember me--%>
-        <p><label>Enter age <input type="number" placeholder="Your age" name="age" required></label></p>
+        <p><label>Enter age <input type="number" min="5" max="120" placeholder="Your age" name="age" required></label></p>
 
         <p><label>Enter your name <input type="text" placeholder="Enter name" name="name" required></label></p>
 
