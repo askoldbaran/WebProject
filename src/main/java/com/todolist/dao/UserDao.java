@@ -15,8 +15,8 @@ public enum UserDao {
 
     public User getUserById(int id) {
         User user = new User();
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
         Connection connection = DBConnection.getInstance().getConnection();
 
         try {
@@ -39,7 +39,7 @@ public enum UserDao {
 
 
     public List<User> allUsers() {
-        List<User> allUsers = new ArrayList<User>();
+        List<User> allUsers = new ArrayList<>();
         Statement statement = null;
         ResultSet resultSet = null;
         Connection connection = DBConnection.getInstance().getConnection();

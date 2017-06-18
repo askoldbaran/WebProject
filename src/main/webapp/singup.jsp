@@ -22,23 +22,17 @@
 %>
 <form action="/registration" method="post">
     <div class="container">
-        <p><label>Email </label>
-        <input type="text" placeholder="Enter Email" name="email" required></p>
+        <p><label>Email <input type="email" placeholder="Enter Email" name="email" required></label></p>
 
-        <p><label>Password </label>
-        <input type="password" placeholder="Enter Password" name="psw" required></p>
+        <p><label>Password <input type="text" placeholder="Enter Password" name="psw" required></label></p>
 
-        <p><label>Repeat Password </label>
-        <input type="password" placeholder="Repeat Password" name="psw-repeat" required></p>
+        <p><label>Repeat Password <input type="text" placeholder="Repeat Password" name="psw-repeat" required></label></p>
         <%--<input type="checkbox" checked="checked"> Remember me--%>
-        <p><label>Enter age </label>
-            <input type="age" placeholder="Your age" name="age" required></p>
+        <p><label>Enter age <input type="number" placeholder="Your age" name="age" required></label></p>
 
-        <p><label>Enter your name </label>
-            <input type="name" placeholder="Enter name" name="name" required></p>
+        <p><label>Enter your name <input type="text" placeholder="Enter name" name="name" required></label></p>
 
-        <p><label>Enter address </label>
-            <input type="address" placeholder="Enter address" name="address" required></p>
+        <p><label>Enter address <input type="text" placeholder="Enter address" name="address" required></label></p>
 
         <div class="clearfix">
             <%--<button type="button"  class="cancelbtn">Cancel</button>--%>

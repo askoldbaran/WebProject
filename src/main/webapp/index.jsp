@@ -8,8 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-<form action="welcome.jsp">
-    <input type="text" name="uname">
+<form action="/">
+    <%--<input type="text" name="uname">--%>
     <%--<input type="submit" value="go"><br/>--%>
 </form>
 <a href="login.jsp">login</a>|

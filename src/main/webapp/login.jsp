@@ -11,20 +11,10 @@
 <hr/>
 
 <h3>Login Form</h3>
-<%
-    String profile_msg=(String)request.getAttribute("profile_msg");
-    if(profile_msg!=null){
-        out.print(profile_msg);
-    }
-    String login_msg=(String)request.getAttribute("login_msg");
-    if(login_msg!=null){
-        out.print(login_msg);
-    }
-%>
 <br/>
-<form action="loginprocess.jsp" method="post">
-    Email:<input type="text" name="email" placeholder="Enter email"/><br/><br/>
-    Password:<input type="password" name="password" placeholder="Enter password"/><br/><br/>
-    <input type="submit" value="login"/>
+<form action="/login" method="post">
+    <label>Email:<input type="text" name="login" placeholder="Enter email"/></label>
+    <label>Password:<input type="text" name="password" placeholder="Enter password"/></label>
+    <input type="submit" value="Submit"/>
 </form>
 </html>
