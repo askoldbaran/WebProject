@@ -7,6 +7,13 @@ public class Item {
     private int id;
     private String text;
 
+    public Item() {
+    }
+
+    public Item(String text) {
+        this.text = text;
+    }
+
     public int getId() {
         return id;
     }

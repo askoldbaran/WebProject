@@ -9,50 +9,88 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+    <script src="JS/jquery-3.2.1.js"></script>
+    <link type="text/css" href="CSS/Bootsrap/css/bootstrap.css" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
-<div style="padding: 5px;">
-
-    <a href="${pageContext.request.contextPath}/">Home</a>
-    |
-    <a href="${pageContext.request.contextPath}/userPage">User page</a>
-    |
-    <a href="${pageContext.request.contextPath}/login">Login</a>
-    |
-    <a href="${pageContext.request.contextPath}/singup">Sign up</a>
-    |
-    <a href="${pageContext.request.contextPath}/doSignOut">Logout</a>
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li id="liHome" role="presentation"><a href="${pageContext.request.contextPath}/">Home</a>
+                </li>
+                <li id="liSign" role="presentation" class="active"><a
+                        href="${pageContext.request.contextPath}/userPage">User page</a>
+                </li>
+                <li id="liLogin" role="presentation"><a href="${pageContext.request.contextPath}/login">Login</a>
+                </li>
+                <li id="liLogOut" role="presentation"><a href="${pageContext.request.contextPath}/doLogOut">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 align="left">Web App</h3>
+    </div>
 </div>
-<br><br>
-<h3>HELLO ${user.name}</h3>
-<br/>
-User Name: <b>${user.name}</b><br/>
-User Age: <b>${user.age}</b><br/>
-User Address: <b>${user.address}</b><br/><br/><br/>
+<div class="container" align="center">
+    <div class="row">
+        <div class="col-sm-4"><h2><b>User Name: ${user.name}</b></h2></div>
+        <div class="col-sm-4"><h2><b>User Age: ${user.age}</b></h2></div>
+        <div class="col-sm-4"><h2><b>User Address: ${user.address}</b></h2></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <form action="/addItem" method="post">
+                <button id="btnAddItem" type="submit" value="Add Item" class="btn btn-primary btn-lg center-block">Add
+                    Item
+                </button>
+                <div id="addItem" hidden style="margin-top: 5px">
+                    <input type="text" class="form-control" placeholder="Enter text" name="text" required>
 
-<table border="1" cellpadding="5" cellspacing="1" >
-    <tr>
-        <th>Text</th>
-        <%--<th>State</th>--%>
-        <th>Delete</th>
-    </tr>
-
-    <c:forEach items="${itemList}" var="item" >
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
         <tr>
-            <td> <c:out value="${item.getText()}"/></td>
-            <%--<td>${item.state}</td>--%>
-            <td>
-                <form action="deleteItem" method="post">
-                    <input type="submit" value="Delete" name="${item.getId()}"/>
-                </form>
-            </td>
+            <th>Text</th>
+            <th>Delete</th>
         </tr>
-    </c:forEach>
-</table>
+        </thead>
+        <tbody>
+        <c:forEach items="${itemList}" var="item">
+            <tr>
+                <td><c:out value="${item.getText()}"/></td>
+                <td width="110px">
+                    <a type="button" methods="post" href="deleteItem?id=${item.getId()}"
+                       class="btn btn-primary center-block" style="margin-top: 5px">Delete</a>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 
-<form action="/addItem" method="post">
-    <input type="submit" value="Add Item"/>
-</form>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var check = false;
+        $("#btnAddItem").click(function () {
+            if (check == false) {
+                $("#addItem").show();
+                check = true;
+            } else {
+                $("#addItem").hide();
+                check = false;
+            }
+
+        });
+    });
+</script>
+
 </body>
 </html>

@@ -9,6 +9,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:${javax.servlet.jsp.jstl-api.version}" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.webjars:bootstrap:3.2.0" />
           <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:${javax.servlet-api.version}" />
           <element id="library" level="project" name="Maven: junit:junit:${junit.version}" />
           <element id="library" level="project" name="Maven: javaee:javaee-api:5" />

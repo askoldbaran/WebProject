@@ -21,14 +21,14 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
 
-        String email = httpServletRequest.getParameter("email");
+        String login = httpServletRequest.getParameter("email");
         String password = httpServletRequest.getParameter("psw");
         String name = httpServletRequest.getParameter("name");
         int age = Integer.parseInt(httpServletRequest.getParameter("age"));
         String address = httpServletRequest.getParameter("address");
 
         String errorMsg = null;
-        if (email == null || password == null || name == null || age <= 0 || address == null) {
+        if (login == null || password == null || name == null || age <= 0 || address == null) {
             errorMsg = "Wrong input";
         }
         if (errorMsg != null) {
@@ -37,7 +37,7 @@ public class RegistrationServlet extends HttpServlet {
             out.println("<font color=red>" + errorMsg + "</font>");
             rd.include(httpServletRequest, httpServletResponse);
         } else {
-            User user = new User(name, age, email, password, address);
+            User user = new User(name, age, login, password, address);
             UserDao.INSTANCE.saveUser(user);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
             rd.forward(httpServletRequest, httpServletResponse);

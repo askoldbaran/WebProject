@@ -13,24 +13,22 @@ import java.util.List;
 public enum ItemDao {
     INSTANCE;
 
-    public boolean saveItem(User user, Item item){
-        PreparedStatement preparedStatement = null;
+    public void saveItem(User user, Item item) {
+        PreparedStatement preparedStatement;
         Connection connection = DBConnection.getInstance().getConnection();
         try {
             preparedStatement = connection.prepareStatement("insert into item(text, userID) " +
                     "values (?,?)");
-            preparedStatement.setString(1,item.getText());
-            preparedStatement.setInt(2,user.getUserID());
+            preparedStatement.setString(1, item.getText());
+            preparedStatement.setInt(2, user.getUserID());
             int i = preparedStatement.executeUpdate();
-            if (i>0){
-                return true;
-            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
     }
-    public boolean updateItem(Item item){
+
+    public boolean updateItem(Item item) {
 
         PreparedStatement preparedStatement = null;
         Connection connection = DBConnection.getInstance().getConnection();
@@ -39,10 +37,10 @@ public enum ItemDao {
             preparedStatement = connection.prepareStatement("update item set text = ?" +
                     "where id = ?");
 
-            preparedStatement.setString(1,item.getText());
+            preparedStatement.setString(1, item.getText());
 
             int i = preparedStatement.executeUpdate();
-            if (i>0){
+            if (i > 0) {
                 return true;
             }
         } catch (SQLException e) {
@@ -51,23 +49,21 @@ public enum ItemDao {
         return false;
     }
 
-    public boolean deleteItemById(int id) {
+    public void deleteItemById(int id) {
 
         PreparedStatement preparedStatement = null;
         Connection connection = DBConnection.getInstance().getConnection();
         try {
-            preparedStatement = connection.prepareStatement("delete item where id = ?");
+            preparedStatement = connection.prepareStatement("delete from item where id = ?");
             preparedStatement.setInt(1, id);
             int i = preparedStatement.executeUpdate();
-            if (i>0){
-                return true;
-            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return  false;
     }
-    public List<Item> itemsByUserId(int id){
+
+    public List<Item> itemsByUserId(int id) {
         List<Item> items = new ArrayList<Item>();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -82,8 +78,6 @@ public enum ItemDao {
                 item.setText(resultSet.getString("text"));
                 items.add(item);
             }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

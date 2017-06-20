@@ -28,11 +28,11 @@ public class UserPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         HttpSession session = httpServletRequest.getSession();
-        User loggedUser = LoggedUser.getLoggedUser(session);
+        User user = (User) session.getAttribute("loggedUser");
 
-        httpServletRequest.setAttribute("user", loggedUser);
+        httpServletRequest.setAttribute("user", user);
 
-        List<Item> list = ItemDao.INSTANCE.itemsByUserId(loggedUser.getUserID());
+        List<Item> list = ItemDao.INSTANCE.itemsByUserId(user.getUserID());
 
         httpServletRequest.setAttribute("itemList", list);
         RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher("/userPage.jsp");

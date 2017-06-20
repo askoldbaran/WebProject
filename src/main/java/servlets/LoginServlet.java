@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
         }
         if (error) {
             user = new User();
-            user.setName(login);
+            user.setLogin(login);
             user.setPassword(password);
 
             httpServletRequest.setAttribute("errorString", errorMsg);
@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
             dispatcher.forward(httpServletRequest, httpServletResponse);
         } else {
             HttpSession session = httpServletRequest.getSession();
-            LoggedUser.saveLoggedUser(session, user);
+            session.setAttribute("loggedUser", user);
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/userPage");
             PrintWriter out = httpServletResponse.getWriter();
             out.println("Welcome" + login);

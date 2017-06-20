@@ -9,38 +9,45 @@
 <%@ include file="index.jsp" %>
 <html>
 <hr/>
-<h3>Sing up Form</h3>
-<%
-//    String profile_msg=(String)request.getAttribute("profile_msg");
-//    if(profile_msg!=null){
-//        out.print(profile_msg);
-//    }
-    String singup_msg=(String)request.getAttribute("singup_msg");
-    if(singup_msg!=null){
-        out.print(singup_msg);
-    }
-%>
-<form action="/registration" method="post">
-    <div class="container">
-        <p><label>Email <input type="email" placeholder="Enter Email" name="email" required></label></p>
-
-        <p><label>Password <input type="text" placeholder="Enter Password" name="psw" required></label></p>
-
-        <p><label>Repeat Password <input type="text" placeholder="Repeat Password" name="psw-repeat" required></label></p>
-        <%--<input type="checkbox" checked="checked"> Remember me--%>
-        <p><label>Enter age <input type="number" min="5" max="120" placeholder="Your age" name="age" required></label></p>
-
-        <p><label>Enter your name <input type="text" placeholder="Enter name" name="name" required></label></p>
-
-        <p><label>Enter address <input type="text" placeholder="Enter address" name="address" required></label></p>
-
-        <div class="clearfix">
-            <%--<button type="button"  class="cancelbtn">Cancel</button>--%>
-            <p></p><input type="submit" value="submit"/>
-        </div>
-    </div>
-</form>
+<h3 align="center">Sing up Form</h3>
+<script src="JS/jquery-3.2.1.js"></script>
 <body>
+<div class="container">
+    <form action="/registration" method="post">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
 
+            <label for="inputEmail">Email address:</label>
+            <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required
+                   autofocus>
+
+            <label for="inputPassword">Password:</label>
+            <input type="password" id="inputPassword" name="psw" class="form-control" placeholder="Password" required>
+
+
+            <label for="inputAge">Your age:</label>
+            <input type="number" min="5" max="120" id="inputAge" name="age" class="form-control" placeholder="Your age"
+                   required>
+
+
+            <label for="inputName">Your name:</label>
+            <input type="text" id="inputName" name="name" class="form-control" placeholder="Enter name" required>
+
+            <label for="inputAddress">Your address:</label>
+            <input type="text" id="inputAddress" name="address" class="form-control" placeholder="Enter address"
+                   required>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 10px">Sign up</button>
+        </div>
+        <div class="col-sm-3"></div>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#liLogin").removeClass("active");
+                $("#liSign").addClass("active");
+            });
+        </script>
+    </form>
+</div>
 </body>
 </html>

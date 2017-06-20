@@ -7,16 +7,16 @@ public class User {
     private int userID;
     private String name;
     private int age;
-    private String address;
-    private String password;
     private String login;
+    private String password;
+    private String address;
 
-    public User(String name, int age, String address, String password, String login) {
+    public User(String name, int age,String login , String password, String address) {
         this.name = name;
         this.age = age;
-        this.address = address;
-        this.password = password;
         this.login = login;
+        this.password = password;
+        this.address = address;
     }
 
     public User() {
